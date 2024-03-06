@@ -1,0 +1,32 @@
+.lesson-square {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: #ccc;
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px;
+    border-radius: 50px;
+    border-color: black;
+}
+
+.lesson-squares-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 35px;
+    margin-left: 300px;
+}
+
+.lesson-square.has-teacher {
+    background-color: #66ccff;
+}
+
+.lesson-square:not(.has-teacher) {
+    background-color: #ffcc00;
+}
+
+.lessons-list h2 {
+    margin-left: -850px;
+}

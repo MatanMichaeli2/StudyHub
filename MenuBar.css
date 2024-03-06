@@ -1,0 +1,29 @@
+.menu-bar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .menu-bar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .menu-bar li {
+    padding: 10px 0;
+    cursor: pointer;
+  }
+  
+  .menu-bar li:hover {
+    background-color: #555;
+  }
+
+  .menu-button {
+    background-color: #333;
+    
+  }
