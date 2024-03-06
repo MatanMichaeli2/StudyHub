@@ -5,7 +5,10 @@
     box-sizing: border-box;
   }
   
-
+  .mentor{
+    height: 50px;
+    width: 50px;
+  }
   body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
@@ -97,7 +100,7 @@
   .about-section {
     min-height: 100vh;
     display: flex; 
-    align-items: center; /
+    align-items: center; 
     justify-content: space-between; 
     padding: 2rem;
     background-color: #fdf8ec;
@@ -105,7 +108,7 @@
   }
   
   .about-section img {
-    max-width: 50%; 
+    max-width: 45%; 
     height: auto; 
     order: 2; 
     border-radius: 5%;

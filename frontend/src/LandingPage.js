@@ -5,6 +5,7 @@ import HeroSection from './LandingPage/HeroSection';
 import AboutSection from './LandingPage/AboutSection';
 import ServicesSection from './LandingPage/ServiceSection';
 import ContactSection from './LandingPage/ContactSection';
+import './Landing.css'
 
 function LandingPage() {
   return (
