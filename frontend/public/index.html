@@ -1,80 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../src/pages/landing/Landing.css">
-<title>StudyHub</title>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-<div class="navbar">
-  <img src="/images/newlogo2.png" alt="StudyHub Logo">
-  <div>
-    <a href="#about">About</a>
-    <a href="#service">Services</a>
-    <a href="#contact">Contact us</a>
-    <a href="/LogIn.html">Log in</a>
-  </div>
-</div>
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-<div class="hero-section">
-  <h1>Elevate Your Learning Experience</h1>
-  <p>Join our study group online, where collaborative learning and tailored mentorship pave your path to success.</p>
-  <button>Join Now</button>
-</div>
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-<div class="about-section" id="about">
-  <div class="about-text">
-    <h2>About us</h2>
-    <p>Welcome to StudyHub, your premier destination for study groups online. Our mission is to provide a collaborative and productive environment for students to excel academically.</p>
-    <p>At StudyHub, we believe in the power of teamwork and knowledge sharing. Join us and elevate your learning experience with like-minded individuals who are committed to achieving academic success.</p>
-  </div>
-  <img src="./images/MENTOR.jpg" alt="Study group">
-</div>
-
-
-<div class="services-section" id="service">
-  <div id="service-text">
-    <h2>Services</h2>
-  </div>
-
-  <div class="services-container">
-    <div class="service">
-      <img src="/images/online-executive-education-program-through-OpenClassrooms.jpg" alt="Group Study Sessions">
-      <h3>Group study sessions</h3>
-      <p>Join our collaborative study sessions with peers to enhance your learning and exchange knowledge.</p>
-    </div>
-    <div class="service">
-      <img src="/images/conflict750x500AdobeStock_341001801-750x500.jpg" alt="Mentoring and Tutoring">
-      <h3>Mentoring and tutoring</h3>
-      <p>Get personalized mentoring and tutoring from experienced professionals to improve your academic performance.</p>
-    </div>
-    <div class="service">
-      <img src="/images/photo-1552581234-26160f608093.webp" alt="Exam Preparation Support">
-      <h3>Exam preparation support</h3>
-      <p>Receive guidance and resources to excel in your exams through our comprehensive exam preparation support.</p>
-    </div>
-  </div>
-</div>
-
-
-<section class="contact-section" id="contact">
-  <div class="text-container"> 
-    <h2>Reach Out Today</h2>
-    <p>Reach out to us using the contact form below. We look forward to hearing from you and assisting you with your study group needs.</p>
-  </div>
-  <form id="contactForm">
-    <div class="input-group">
-      <input type="text" id="name" name="name" placeholder="Name" required>
-      <input type="email" id="email" name="email" placeholder="Email" required>
-    </div>
-    <textarea id="message" name="message" placeholder="Message" required></textarea>
-    <button type="submit">Send</button>
-  </form>
-  
-</section>
-<script src="../src/pages/landing/landing.js"></script>
-
-</body>
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
 </html>

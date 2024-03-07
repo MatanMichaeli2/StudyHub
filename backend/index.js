@@ -4,7 +4,6 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import path from "path";
 
-
 const app = express();
 const port = 5000;
 
@@ -25,12 +24,5 @@ app.use(cors());
 // Serve static files from the frontend/public directory
 app.use(express.static('../frontend/public'));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
-});
-
-app.get("/getData", (req, res) => {
-  res.send("Hello");
-});
 
 app.use(bodyParser.urlencoded({ extended: true }));

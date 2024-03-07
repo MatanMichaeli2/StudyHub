@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import './StudyGroupCard.css'
 
 function StudyGroupCard() {
   const [studyGroups, setStudyGroups] = useState([]);
