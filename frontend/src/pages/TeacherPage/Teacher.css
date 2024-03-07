@@ -1,0 +1,81 @@
+/* Combined.css */
+
+
+nav {
+    background-color: #333;
+    padding: 1rem;
+    margin-top: 0px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #ccc;
+}
+
+/* Study group card styles */
+.study-group-card {
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.study-group-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.study-group-card p {
+    margin: 0;
+}
+
+.study-group-container {
+    display: flex; /* Use flexbox layout */
+}
+
+.study-group-card {
+    flex: 1; /* Distribute available space equally among cards */
+    margin-right: 10px; /* Add margin between cards */
+}
+
+/* Adjust margin-right to create space between cards */
+.study-group-card:last-child {
+    margin-right: 0; /* Remove margin from last card to avoid extra space */
+}
+
+/* Background styles */
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
