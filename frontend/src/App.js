@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Axios from "axios";
+import AdminDisplay from './components/UsersDetails/AdminDisplay';
+
 
 const App = () => {
 
@@ -16,9 +18,17 @@ const App = () => {
   },[]);
 
   return(
-    <div>{data}</div>
+    <div>
+
+    
+      {data}
+    
+    
+    </div>
   )
   
 }
 
-export default App
+export default App;
+
+
