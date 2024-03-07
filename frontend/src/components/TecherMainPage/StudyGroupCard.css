@@ -1,0 +1,19 @@
+/* StudyGroupCard.css */
+
+.study-group-card {
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .study-group-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .study-group-card p {
+    margin: 0;
+  }
+  
