@@ -22,7 +22,7 @@ function ServicesSection() {
         </div>
         {/* Service 3 */}
         <div className="service">
-          <img src="/images/photo-1552581234-26160f608093.webp" alt="Exam Preparation Support" />
+          <img src="/images/Tips-for-Exams.jpg" alt="Exam Preparation Support" />
           <h3>Exam preparation support</h3>
           <p>Receive guidance and resources to excel in your exams through our comprehensive exam preparation support.</p>
         </div>
