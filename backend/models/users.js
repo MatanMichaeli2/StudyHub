@@ -1,3 +1,5 @@
+// userModel.js
+
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
@@ -15,10 +17,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  studySubjects: [{
+  study: {
     type: String,
     required: true
-  }],
+  },
   requestedSubjects: [{
     type: String
   }],
