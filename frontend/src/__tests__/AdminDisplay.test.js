@@ -1,11 +1,19 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import AdminDisplay from '../path/to/AdminDisplay'; 
+import { shallow } from 'enzyme'; 
+import AdminDisplay from './AdminDisplay'; 
+import Header from './Header'; 
+import UserDetails from './UserDetails'; 
 
-test('renders admin display with user data', () => {
-  const { getByText } = render(<AdminDisplay />);
-  
-  // Check if header is rendered
-  expect(getByText('Admin Panel')).toBeInTheDocument();
+describe('AdminDisplay component', () => {
+  it('should render the header component', () => {
+    const wrapper = shallow(<AdminDisplay />);
+    expect(wrapper.find(Header)).toHaveLength(1);
+  });
+
+  it('should render no users when no users are returned from the JSON file', () => {
+    const wrapper = shallow(<AdminDisplay />);
+    expect(wrapper.find(UserDetails)).toHaveLength(0);
+  });
 });
+
   
