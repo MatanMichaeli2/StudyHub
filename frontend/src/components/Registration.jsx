@@ -115,7 +115,7 @@ function Registration({ onRegistration }) {
   return (
     <div className="registration-page-container">
       <div className="registration-box">
-        <h2>הרשמה</h2>
+        <h2>Register</h2>
         <form onSubmit={handleSignup}>
           <div>
             <label>

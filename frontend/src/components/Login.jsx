@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../constants";
-import './Login'
+import './Login';
+import './Login.css';
+
 // function Login() {
 function Login({ setUser }) {
   const [username, setUsername] = useState("");
