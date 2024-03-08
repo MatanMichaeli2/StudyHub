@@ -1,10 +1,9 @@
 import React from 'react';
-
-//import './AdditionalInfo.css';
+import './AdditionalInfo.css';
 
 const AdditionalInfo = ({ user }) => {
   return (
-    <div>
+    <div className="additional-info-container">
       {user.role === 'Admin' && (
         <div>
           Permissions: {user.permissions.join(', ')}

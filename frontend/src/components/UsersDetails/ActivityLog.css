@@ -1,7 +1,12 @@
 /* ActivityLog.css */
-.activity-log {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
+.activity-log-container {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
   

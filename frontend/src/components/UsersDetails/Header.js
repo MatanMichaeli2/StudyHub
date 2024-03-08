@@ -1,10 +1,15 @@
-
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import React from 'react';
+import './Header.css';
 
 const Header = () => {
   return (
-    <h2>Admin Panel</h2>
+    <div className="header-container">
+      <h2>
+        Admin Panel
+      </h2>
+    </div>
   );
 };
 
 export default Header;
+

@@ -1,7 +1,18 @@
 /* Header.css */
-.header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-  }
-  
+.header-container {
+  background-color: #bea06c; /* Background color */
+  width: 110%; /* Ensure the container spans edge to edge */
+  padding: 8px 0; /* Add padding for better spacing */
+  text-align: center; /* Center the text horizontally */
+
+}
+
+.header-container h2 {
+  margin: 0; /* Remove default margin */
+  color: #fff; /* Text color */
+}
+
+
+
+
+

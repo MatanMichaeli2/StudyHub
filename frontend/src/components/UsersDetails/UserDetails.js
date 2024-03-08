@@ -1,6 +1,5 @@
 import React from 'react';
-;
-//import './UserDetails.css';
+import './UserDetails.css';
 
 const UserDetails = ({ user }) => {
   return (
@@ -17,3 +16,4 @@ const UserDetails = ({ user }) => {
 };
 
 export default UserDetails;
+

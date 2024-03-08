@@ -1,0 +1,51 @@
+/* AdminDisplay.css */
+#admin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    padding: 15px;
+    background-color: #ffe8c1; /* Dark cream background color */
+    font-family: Arial, sans-serif; /* Change font family */
+    color: #333; /* Change text color */
+    text-align: center; /* Center text horizontally */
+  }
+  
+  .search-container {
+    margin-bottom: 20px;
+    border-radius: 40px; /* Round the search block more */
+    overflow: hidden; /* Ensure rounded corners are visible */
+    position: relative; /* Set position to enable z-index */
+    z-index: 1; /* Place the search block in front */
+    background-color: #e1e8ed; /* Twitter-like background color */
+    padding: 10px 20px; /* Add padding */
+    width: 100%; /* Make the search container fill its parent width */
+    max-width: 400px; /* Limit maximum width */
+  }
+  
+  .search-input {
+    padding: 10px;
+    border: none;
+    border-radius: 20px; /* Round the search input more */
+    width: 100%;
+    font-size: 16px; /* Decrease font size */
+    background-color: transparent; /* Transparent background color */
+    outline: none; /* Remove outline */
+  }
+  
+  .search-input::placeholder {
+    color: #8899a6; /* Placeholder text color */
+  }
+  
+  .search-input:focus {
+    box-shadow: 0 0 0 2px #7f8285; /* Add border color when focused */
+  }
+  
+  /* Change user details font and color */
+  .user-details {
+    font-family: 'Arial', sans-serif;
+    color: #555;
+  }
+  
+  
+  

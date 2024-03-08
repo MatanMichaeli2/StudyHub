@@ -1,10 +1,9 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
-//import './ContactInfo.css';
+import './ContactInfo.css';
 
 const ContactInfo = ({ user }) => {
   return (
-    <div>
+    <div className="contact-info-container">
       Address: {user.address}
       <br />
       Phone: {user.phone}

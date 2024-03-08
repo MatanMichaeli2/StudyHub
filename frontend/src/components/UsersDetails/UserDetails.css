@@ -1,7 +1,6 @@
 /* UserDetails.css */
-.user-details {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
+.user-details-container {
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  margin-bottom: 20px;
+}

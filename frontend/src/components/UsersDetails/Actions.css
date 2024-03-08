@@ -1,9 +1,21 @@
 /* Actions.css */
-.actions {
-    margin-top: 10px;
-  }
-  .actions button {
-    margin-right: 10px;
-  }
+.actions-container {
+  display: flex;
+  justify-content: center;
+}
+
+.actions-container button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.actions-container button:hover {
+  background-color: #218838;
+}
   
   

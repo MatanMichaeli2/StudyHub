@@ -1,10 +1,9 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
-//import './Actions.css';
+import './Actions.css';
 
 const Actions = () => {
   return (
-    <div>
+    <div className="actions-container">
       <button>Edit User</button>
       <button>Delete User</button>
     </div>
@@ -12,3 +11,5 @@ const Actions = () => {
 };
 
 export default Actions;
+
+

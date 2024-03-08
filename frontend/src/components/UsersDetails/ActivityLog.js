@@ -1,11 +1,10 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
-//import './ActivityLog.css';
+import './ActivityLog.css';
 
 const ActivityLog = ({ activities }) => {
   return (
-    <div>
-      <div variant="h6">Activity Log</div>
+    <div className="activity-log-container">
+      <div>Activity Log</div>
       <ul>
         {activities?.map((activity, index) => (
           <li key={index}>{activity}</li>
@@ -16,3 +15,4 @@ const ActivityLog = ({ activities }) => {
 };
 
 export default ActivityLog;
+
