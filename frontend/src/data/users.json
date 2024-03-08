@@ -1,0 +1,44 @@
+[
+    {
+      "name": "John Doe",
+      "email": "john@example.com",
+      "role": "Teacher",
+      "dateJoined": "2023-01-15",
+      "lastLogin": "2024-03-01",
+      "address": "123 Main St, Cityville",
+      "phone": "123-456-7890",
+      "socialMedia": "twitter.com/johndoe"
+    },
+    {
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "role": "Student",
+      "dateJoined": "2023-02-20",
+      "lastLogin": "2024-03-05",
+      "address": "456 Elm St, Townsville",
+      "phone": "987-654-3210",
+      "socialMedia": "facebook.com/janesmith"
+    },
+    {
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "role": "Student",
+      "dateJoined": "2023-03-10",
+      "lastLogin": "2024-03-10",
+      "address": "789 Oak St, Villagetown",
+      "phone": "555-555-5555",
+      "socialMedia": "linkedin.com/alicejohnson"
+    },
+    {
+      "name": "Bob Brown",
+      "email": "bob@example.com",
+      "role": "Teacher",
+      "dateJoined": "2023-04-05",
+      "lastLogin": "2024-03-15",
+      "address": "101 Pine St, Hamlet",
+      "phone": "123-123-1234",
+      "socialMedia": "instagram.com/bobbrown"
+    }
+  ]
+  
+  

@@ -1,19 +1,34 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LandingPage from './pages/landing/LandingPage.js';
-import TeacherMainPage from './pages/TeacherPage/TeacherPage.jsx';
+import React, { useEffect, useState } from 'react';
+import Axios from "axios";
+import AdminDisplay from './components/UsersDetails/AdminDisplay';
 
-function App() {
-  return (
+
+const App = () => {
+
+  const [data,setData]=useState("");
+
+
+  const getData = async()=>{
+    const response = await Axios.get("http://localhost:5000/getData");
+    setData(response.data);
+  }
+
+  useEffect(()=>{
+    getData()
+  },[]);
+
+  return(
     <div>
-      <BrowserRouter>
-       <Routes>
-         <Route index element={<LandingPage />} />
-         <Route path="/teacher" element={<TeacherMainPage />} />
-       </Routes>
-      </BrowserRouter>
+
+    
+      {data}
+    
+    
     </div>
-  );
+  )
+  
 }
 
 export default App;
+
+
