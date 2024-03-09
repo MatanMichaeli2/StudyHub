@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../constants";
 import './Login'
-// function Login() {
+import './Login.css'
+
 function Login({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -36,16 +37,24 @@ function Login({ setUser }) {
     }
 
     const data = await response.json();
+    console.log("Login successful! User data:", data.userData); // Add console.log here
     setUser(data.userData);
 
     setUsername("");
     setPassword("");
     alert("Login successful!");
-    navigate("/");
+    
+    // Redirect to the teacher main page if the user is a teacher
+    if (data.userData.role === 'lecturer') {
+      navigate("/teacher");
+    } else {
+      // Redirect to the default landing page for other roles
+      navigate("/");
+    }
   };
 
   return (
-    <div className="login-page-container"> {/* Add this class to the parent div */}
+    <div className="login-page-container">
       <div className="login-box">
         <h2>Login</h2>
         <form onSubmit={handleLogin}>

@@ -1,0 +1,26 @@
+.study-group-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to next line */
+}
+
+.study-group-card {
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 0.5rem;
+}
+
+.close-registration-button {
+    background-color: #ff6347; /* Red color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.close-registration-button:hover {
+    background-color: #d32f2f; /* Darker red color on hover */
+}
