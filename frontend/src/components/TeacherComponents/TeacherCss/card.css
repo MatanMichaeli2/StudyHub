@@ -1,8 +1,12 @@
 .study-group-container {
     display: flex;
     flex-wrap: wrap; /* Allow cards to wrap to next line */
+    font-family: 'Arial', sans-serif; /* Add a nice font */
 }
-
+.content {
+    padding-top: 120px; /* Adjust the value to create desired spacing */
+  }
+  
 .study-group-card {
     background-color: #f4f4f4;
     border: 1px solid #ccc;

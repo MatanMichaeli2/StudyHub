@@ -1,13 +1,18 @@
 // TeacherMainPage.js
 import React from 'react';
 import StudyGroupCard from '../../components/TeacherComponents/StudyGroupCard';
-import TeacherNav from '../../components/TeacherComponents/TeacherNav';
+import NavbarT from '../../components/TeacherComponents/NavbarT';
+import Navbar from '../../components/Navbar.js'
+import Footer from '../../components/TeacherComponents/Tfooter.js';
 
 const TeacherMainPage = () => {
   return (
     <div>
-        {<TeacherNav />}
-        {<StudyGroupCard />}
+      <Navbar />
+      <div className='content'>
+      <StudyGroupCard />
+      </div>
+      <Footer />
     </div>
   );
 };

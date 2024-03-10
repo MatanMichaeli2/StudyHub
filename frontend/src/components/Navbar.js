@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-export function Navbar() {
+function Navbar() {
   return (
     <div className="navbar">
       <img src="/images/newlogo2.png" alt="StudyHub Logo" />
@@ -14,3 +14,5 @@ export function Navbar() {
     </div>
   );
 }
+
+export default Navbar;

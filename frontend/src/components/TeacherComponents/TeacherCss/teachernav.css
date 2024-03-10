@@ -7,13 +7,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #007bff; /* Navbar background color */
+    background-color: #e2d45a; /* Navbar background color */
     color: #fff; /* Text color */
     padding: 1rem;
 }
 
 .navbar img {
-    width: 100px; /* Adjust logo size as needed */
+    width: 80px; /* Adjust logo size as needed */
 }
 
 .navbar a {
