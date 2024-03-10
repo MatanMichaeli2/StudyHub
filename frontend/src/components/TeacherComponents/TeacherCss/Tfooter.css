@@ -1,6 +1,6 @@
 .footer {
-  background-color: #FFA500; /* Light orange background color */
-  color: white; /* Text color */
+  background-color: rgb(253, 241, 210); /* Light orange background color */
+  color: rgb(0, 0, 0); /* Text color */
   padding: 20px 0; /* Add some padding */
   text-align: center; /* Center align the content */
   font-family: 'Arial', sans-serif; /* Add a nice font */

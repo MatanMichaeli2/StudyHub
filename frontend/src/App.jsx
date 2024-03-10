@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/landing/LandingPage';
 import Registration from './components/Registration';
 import Login from './components/Login';
-import { Navbar } from './components/Navbar';
+import { Navbar } from './components/LandingPage/Navbar';
 import TeacherMainPage from './pages/TeacherMain/TeacherMainPage'; // Import TeacherMainPage
 
 const App = () => {

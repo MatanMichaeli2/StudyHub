@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #e2d45a; /* Navbar background color */
+    background-color: rgb(253, 241, 210);
     color: #fff; /* Text color */
     padding: 1rem;
 }
@@ -17,7 +17,7 @@
 }
 
 .navbar a {
-    color: #fff; /* Link color */
+    color: #000000; /* Link color */
     text-decoration: none;
     margin-left: 1rem; /* Adjust spacing between links */
     font-weight: bold; /* Make links bold */
