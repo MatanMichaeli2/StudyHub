@@ -7,6 +7,7 @@ const { userRouter } = require("./routes/userRoutes.js");
 const CardScheme = require('./models/StudyGroupModel');
 const updateCardRoutes = require("./routes/UpdateCardParticipants.js");
 
+
 const app = express();
 const port = 3001;
 
@@ -39,7 +40,7 @@ app.get("/", (req, res) => {
 app.get("/getCard", async (req, res) => {
   try {
     // Get the ID of the logged-in teacher from the request or session
-    const loggedInTeacherId = req.user.id; // Assuming you have authentication middleware that adds the logged-in user to the request object
+    const loggedInTeacherId = req.user.username; // Assuming you have authentication middleware that adds the logged-in user to the request object
     
     // Fetch study groups where the teacher field matches the logged-in teacher's ID
     const studyGroups = await CardScheme.find({ teacher: loggedInTeacherId });

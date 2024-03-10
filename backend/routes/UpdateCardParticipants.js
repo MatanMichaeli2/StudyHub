@@ -4,12 +4,12 @@ const StudyGroup = require('../models/StudyGroupModel');
 
 // Route to handle updating the number of participants for a study group card
 router.post("/", async (req, res) => {
-  const { id, participantsCount } = req.body;
+  const { username, participantsCount } = req.body;
 
   try {
-    // Find the study group card by ID and update the participantsCount field
-    const updatedCard = await StudyGroup.findByIdAndUpdate(
-      id,
+    // Find the study group card by username and update the participantsCount field
+    const updatedCard = await StudyGroup.findOneAndUpdate(
+      { teacher: username }, // Assuming teacher field stores the username
       { participantsCount },
       { new: true }
     );

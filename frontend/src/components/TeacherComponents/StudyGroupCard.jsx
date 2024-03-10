@@ -8,7 +8,7 @@ function StudyGroupCard() {
   const [updatedParticipants, setUpdatedParticipants] = useState(0); // State variable for updated number of participants
 
   useEffect(() => {
-    axios.get("http://localhost:3001/getCard")
+    axios.get("/getCard")
       .then(response => {
         setStudyGroups(response.data);
         // Assuming the first card is displayed by default and updating participants count
@@ -40,14 +40,14 @@ function StudyGroupCard() {
     }
 
     // Assuming you have an API endpoint to update the participants count for the selected card
-    axios.post(`http://localhost:3001/updateCard`, {
+    axios.post(`/updateCard`, {
       id: cards[0]._id,
       participantsCount: updatedParticipants
     })
       .then(response => {
         // Assuming the response contains the updated card data
         setStudyGroups([response.data]);
-        setParticipants(updatedParticipants); // Update the displayed participants count
+        setParticipants(response.data.participantsCount); // Update the displayed participants count
       })
       .catch(err => console.log(err));
   };
