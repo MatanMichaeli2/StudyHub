@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const path = require("path");
 const { userRouter } = require("./routes/userRoutes.js");
+const CardScheme = require('./models/StudyGroupModel');
+const updateCardRoutes = require("./routes/UpdateCardParticipants.js");
 
 const app = express();
 const port = 3001;
@@ -33,8 +35,13 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 });
 
-app.get("/getData", (req, res) => {
-  res.send("Hello");
+app.get("/getCard", (req, res) => {
+  CardScheme.find()
+  .then(cards => res.json(cards))
+  .catch(err => res.json(err))
 });
+
+// Mount the update card routes under the /updateCard path
+app.use("/updateCard", updateCardRoutes);
 
 app.use(bodyParser.urlencoded({ extended: true }));

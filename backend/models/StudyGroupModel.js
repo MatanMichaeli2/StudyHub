@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const studyGroupCardSchema = new mongoose.Schema({
     subjectTopic: {
       type: String,
@@ -24,3 +25,5 @@ const studyGroupCardSchema = new mongoose.Schema({
     }
   });
   
+  const CardScheme = mongoose.model("studygroup",studyGroupCardSchema);
+  module.exports = CardScheme;
