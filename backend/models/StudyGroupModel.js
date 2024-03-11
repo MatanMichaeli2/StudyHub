@@ -2,28 +2,28 @@ const mongoose = require("mongoose");
 const studyGroupCardSchema = new mongoose.Schema({
     subjectTopic: {
       type: String,
-      required: true,
+      required: false,
     },
     participantsCount: {
       type: Number,
-      required: true,
+      required: false,
       default: 0,
     },
     maxParticipants: {
       type: Number,
-      required: true,
+      required: false,
       default: 10,
     },
     participants: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
+      
     }],
     teacher: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User', // Reference to the User model
+      type: String,
       required: true,
     }
   });
   
   const CardScheme = mongoose.model("studygroup",studyGroupCardSchema);
-  module.exports = CardScheme;
+  module.exports = {CardScheme};

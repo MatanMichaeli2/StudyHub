@@ -4,8 +4,23 @@
     font-family: 'Arial', sans-serif; /* Add a nice font */
 }
 .content {
-    padding-top: 120px; /* Adjust the value to create desired spacing */
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 120px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 120px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 120px;
+}
   
 .study-group-card {
     background-color: #f4f4f4;

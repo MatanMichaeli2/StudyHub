@@ -6,7 +6,7 @@ const path = require("path");
 const { userRouter } = require("./routes/userRoutes.js");
 const CardScheme = require('./models/StudyGroupModel');
 const updateCardRoutes = require("./routes/UpdateCardParticipants.js");
-
+const {router} = require("./routes/AddStudyGroupRoute.js");
 
 const app = express();
 const port = 3001;
@@ -36,6 +36,8 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 });
 
+app.use("/createStudyGroup",router);
+
 // Route to fetch study groups related to the logged-in teacher
 app.get("/getCard", async (req, res) => {
   try {
@@ -52,7 +54,9 @@ app.get("/getCard", async (req, res) => {
   }
 });
 
+
 // Mount the update card routes under the /updateCard path
 app.use("/updateCard", updateCardRoutes);
+
 
 app.use(bodyParser.urlencoded({ extended: true }));

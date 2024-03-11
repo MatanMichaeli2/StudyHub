@@ -17,9 +17,12 @@ const App = () => {
         <Route path="/login" element={<Login setUser={setUser} />} />
         {/* Add route for teacher main page */}
         {user && user.role === 'lecturer' && (
-          <Route path="/teacher" element={<TeacherMainPage />} />
+          <Route
+            path="/teacher"
+            element={<TeacherMainPage user={user} />} // Pass user object as prop
+          />
         )}
-      </Routes>a
+      </Routes>
     </Router>
   );
 };
