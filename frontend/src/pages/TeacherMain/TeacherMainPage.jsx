@@ -12,7 +12,7 @@ const TeacherMainPage = ({ user }) => {
       <Navbar />
       <div className='content'>
       <TeacherAddGroup user={user} />
-      <StudyGroupCard />
+      <StudyGroupCard user={user} />
       </div>
       <Footer />
     </div>

@@ -1,18 +1,20 @@
 // StudyGroupRoutes.js
-
 const express = require('express');
-const router = express.Router();
+const groupRouter = express.Router();
 const StudyGroup = require('../models/StudyGroupModel');
-const User = require('../models/userModel');
+const { CardScheme } = require('../models/StudyGroupModel'); // Assuming CardScheme is the correct model
+const { UserModel } = require('../models/users');
 
 // Route to fetch study groups related to the logged-in teacher
-router.get('/', async (req, res) => {
+
+
+groupRouter.get('/card', async (req, res) => {
   try {
-    // Get the ID of the logged-in teacher from the request or session
-    const loggedInTeacherId = req.user._id; // Assuming you have authentication middleware that adds the logged-in user to the request object
+    // Get the username of the logged-in teacher from the query parameters
+    const loggedInTeacherName = req.query.loggedInTeacherUsername;
     
-    // Fetch study groups where the teacher field matches the logged-in teacher's ID
-    const studyGroups = await StudyGroup.find({ teacher: loggedInTeacherId }).populate('teacher', 'firstName lastName');
+    // Fetch study groups where the teacher field matches the logged-in teacher's username
+    const studyGroups = await CardScheme.find({ teacher: loggedInTeacherName });
 
     res.json(studyGroups);
   } catch (error) {
@@ -21,4 +23,15 @@ router.get('/', async (req, res) => {
   }
 });
 
-module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+module.exports = groupRouter;

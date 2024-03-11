@@ -5,8 +5,9 @@ const mongoose = require("mongoose");
 const path = require("path");
 const { userRouter } = require("./routes/userRoutes.js");
 const CardScheme = require('./models/StudyGroupModel');
-const updateCardRoutes = require("./routes/UpdateCardParticipants.js");
 const {router} = require("./routes/AddStudyGroupRoute.js");
+const groupRouter = require("./routes/StudyGroupRoutes.js");
+const updateCardRouter = require("./routes/UpdateCardParticipants.js");
 
 const app = express();
 const port = 3001;
@@ -38,25 +39,29 @@ app.get("/", (req, res) => {
 
 app.use("/createStudyGroup",router);
 
-// Route to fetch study groups related to the logged-in teacher
-app.get("/getCard", async (req, res) => {
-  try {
-    // Get the ID of the logged-in teacher from the request or session
-    const loggedInTeacherId = req.user.username; // Assuming you have authentication middleware that adds the logged-in user to the request object
-    
-    // Fetch study groups where the teacher field matches the logged-in teacher's ID
-    const studyGroups = await CardScheme.find({ teacher: loggedInTeacherId });
+app.use("/getCard",groupRouter);
 
-    res.json(studyGroups);
-  } catch (error) {
-    console.error('Error fetching study groups:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
+app.use("/updateCard",updateCardRouter);
+
+// // Route to fetch study groups related to the logged-in teacher
+// app.get("/getCard", async (req, res) => {
+  // try {
+    // // Get the ID of the logged-in teacher from the request or session
+    // const loggedInTeacherId = req.user.username; // Assuming you have authentication middleware that adds the logged-in user to the request object
+    
+    // // Fetch study groups where the teacher field matches the logged-in teacher's ID
+    // const studyGroups = await CardScheme.find({ teacher: loggedInTeacherId });
+
+    // res.json(studyGroups);
+  // } catch (error) {
+    // console.error('Error fetching study groups:', error);
+    // res.status(500).json({ message: 'Server error' });
+  // }
+// });
 
 
 // Mount the update card routes under the /updateCard path
-app.use("/updateCard", updateCardRoutes);
+
 
 
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -1,25 +1,32 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from '../../constants'; // Import BASE_URL from constants
 import './TeacherCss/card.css'
 
-function StudyGroupCard() {
+function StudyGroupCard({ user }) {
   const [cards, setStudyGroups] = useState([]);
   const [participants, setParticipants] = useState(0); // State variable for number of participants
   const [updatedParticipants, setUpdatedParticipants] = useState(0); // State variable for updated number of participants
-
+  
+  
+  
   useEffect(() => {
-    axios.get("/getCard")
-      .then(response => {
-        setStudyGroups(response.data);
-        // Assuming the first card is displayed by default and updating participants count
-        if (response.data.length > 0) {
-          setParticipants(response.data[0].participantsCount);
-          setUpdatedParticipants(response.data[0].participantsCount);
-        }
-      })
-      .catch(err => console.log(err));
-  }, []); // Empty dependency array ensures the effect runs only once on component mount
-
+    if (user && user.username) {
+      const loggedInTeacherName = user.username;
+      axios.get(`${BASE_URL}/getCard/card?loggedInTeacherUsername=${loggedInTeacherName}`)
+        .then(response => {
+          setStudyGroups(response.data);
+          // Assuming the first card is displayed by default and updating participants count
+          if (response.data.length > 0) {
+            setParticipants(response.data[0].participantsCount);
+            setUpdatedParticipants(response.data[0].participantsCount);
+          }
+        })
+        .catch(err => console.log(err));
+    }
+  }, [user]); // Include user object in dependency array
+  
+  
   // Function to handle incrementing participants count
   const incrementParticipants = () => {
     setUpdatedParticipants(updatedParticipants + 1);
@@ -40,7 +47,7 @@ function StudyGroupCard() {
     }
 
     // Assuming you have an API endpoint to update the participants count for the selected card
-    axios.post(`/updateCard`, {
+    axios.post(`${BASE_URL}/updateCard/updated`, {
       id: cards[0]._id,
       participantsCount: updatedParticipants
     })

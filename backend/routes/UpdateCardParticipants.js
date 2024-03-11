@@ -1,9 +1,9 @@
 const express = require('express');
-const router = express.Router();
+const updateCardRouter = express.Router();
 const StudyGroup = require('../models/StudyGroupModel');
 
 // Route to handle updating the number of participants for a study group card
-router.post("/", async (req, res) => {
+updateCardRouter.post("/updated", async (req, res) => {
   const { username, participantsCount } = req.body;
 
   try {
@@ -26,4 +26,4 @@ router.post("/", async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = updateCardRouter;
