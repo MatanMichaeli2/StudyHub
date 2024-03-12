@@ -1,0 +1,15 @@
+.Tpage{
+    min-height: 100vh;
+   background: rgb(196,175,133);
+   background: linear-gradient(356deg, rgba(196,175,133,0.9781162464985994) 2%, rgba(212,197,166,1) 40%, rgba(244,241,193,1) 78%);
+}
+
+.content {
+    display: flex;
+  }
+  
+  .section {
+    flex: 1;
+    margin: 0 10px;
+  }
+  

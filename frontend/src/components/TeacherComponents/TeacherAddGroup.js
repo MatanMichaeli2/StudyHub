@@ -1,10 +1,12 @@
+//TeacherAddGroup.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../constants'; // Import BASE_URL from constants
+import './TeacherCss/TeacherAddGroupButton.css';
 
 const TeacherAddGroup = ({ user }) => {
-  const [topic, setTopic] = useState('');
+  const [subjectTopic, setTopic] = useState('');
   const navigate = useNavigate(); // Initialize navigate
 
   const handleCreateGroup = async (event) => {
@@ -13,7 +15,7 @@ const TeacherAddGroup = ({ user }) => {
     try {
       // Send a request to the backend to create a new study group
       const response = await axios.post(`${BASE_URL}/createStudyGroup/created`, {
-        topic,
+        subjectTopic,
         teacher: user.username // Assuming the user object contains the teacher's username
       });
 
@@ -31,11 +33,11 @@ const TeacherAddGroup = ({ user }) => {
   };
 
   return (
-    <div>
+    <div className='study-group-container'>
       <form onSubmit={handleCreateGroup}>
         <input
           type="text"
-          value={topic}
+          value={subjectTopic}
           onChange={(e) => setTopic(e.target.value)}
           placeholder="Enter topic"
         />

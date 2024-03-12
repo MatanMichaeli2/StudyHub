@@ -1,45 +1,78 @@
 .study-group-container {
-    display: flex;
-    flex-wrap: wrap; /* Allow cards to wrap to next line */
-    font-family: 'Arial', sans-serif; /* Add a nice font */
-}
-.content {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding-top: 120px;
+  height: 100vh;
 }
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 120px;
-}
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 120px;
-}
-  
+
 .study-group-card {
-    background-color: #f4f4f4;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 1rem;
-    margin: 0.5rem;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-right: 20px; /* Add margin in the x-direction */
 }
 
-.close-registration-button {
-    background-color: #ff6347; /* Red color */
-    color: #fff; /* White text color */
-    border: none;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth transition */
+.study-group-card {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Add margin between cards */
 }
 
-.close-registration-button:hover {
-    background-color: #d32f2f; /* Darker red color on hover */
+.study-group-card {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Add margin between cards */
+}
+
+.study-group-card {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Add margin between cards */
+}
+
+.study-group-card {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Add margin between cards */
+}
+
+.study-group-card {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Add margin between cards */
+}
+
+
+.study-group-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.study-group-card p {
+  margin-bottom: 15px;
+}
+
+.study-group-card button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.study-group-card button:hover {
+  background-color: #0056b3;
 }
