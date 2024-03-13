@@ -1,16 +1,18 @@
 const express = require('express');
 const updateCardRouter = express.Router();
 const StudyGroup = require('../models/StudyGroupModel');
+const mongoose = require('mongoose'); // Import Mongoose
 
-// Route to handle updating the number of participants for a study group card
+
+// Route to handle updating the maximum number of participants for a study group card
 updateCardRouter.post("/updated", async (req, res) => {
-  const { username, participantsCount } = req.body;
+  const { id, maxParticipants } = req.body;
 
   try {
-    // Find the study group card by username and update the participantsCount field
-    const updatedCard = await StudyGroup.findOneAndUpdate(
-      { teacher: username }, // Assuming teacher field stores the username
-      { participantsCount },
+    // Find the study group card by its ID and update the maxParticipants field
+    const updatedCard = await StudyGroup.findByIdAndUpdate(
+      id,
+      { maxParticipants },
       { new: true }
     );
     

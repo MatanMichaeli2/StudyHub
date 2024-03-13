@@ -3,13 +3,11 @@ import axios from "axios";
 import { BASE_URL } from '../../constants'; // Import BASE_URL from constants
 import './TeacherCss/card.css'
 
-
-
-
 function StudyGroupCard({ user }) {
   const [cards, setStudyGroups] = useState([]);
-  const [participants, setParticipants] = useState(0); // State variable for number of participants
-  const [updatedParticipants, setUpdatedParticipants] = useState(0); // State variable for updated number of participants
+  const [participants, setParticipants] = useState([]); // State variable for number of participants for each card
+  const [updatedParticipants, setUpdatedParticipants] = useState([]); // State variable for updated number of participants
+  const [counts, setCounts] = useState([]); // State variable for count of each card
 
   useEffect(() => {
     if (user && user.username) {
@@ -18,46 +16,43 @@ function StudyGroupCard({ user }) {
         .then(response => {
           console.log("API response:", response.data); // Log API response
           setStudyGroups(response.data);
-          // Assuming the first card is displayed by default and updating participants count
-          if (response.data.length > 0) {
-            setParticipants(response.data[0].participantsCount);
-            setUpdatedParticipants(response.data[0].participantsCount);
-          }
+          // Initialize participants count and updatedParticipants array with data from API
+          const initialParticipants = response.data.map(card => card.participantsCount);
+          setParticipants(initialParticipants);
+          setUpdatedParticipants(initialParticipants);
+          // Initialize counts array with 0 for each card
+          setCounts(Array(response.data.length).fill(0));
         })
         .catch(err => console.log(err));
     }
   }, [user]);
 
-  console.log("Cards:", cards); // Log cards state
-
-  // Function to handle incrementing participants count
-  const incrementParticipants = () => {
-    setUpdatedParticipants(updatedParticipants + 1);
+  const incrementParticipants = (index) => {
+    const updatedCounts = [...counts];
+    updatedCounts[index] += 1;
+    setCounts(updatedCounts);
   };
 
-  // Function to handle decrementing participants count
-  const decrementParticipants = () => {
-    if (updatedParticipants > 0) {
-      setUpdatedParticipants(updatedParticipants - 1);
+  const decrementParticipants = (index) => {
+    if (counts[index] > 0) {
+      const updatedCounts = [...counts];
+      updatedCounts[index] -= 1;
+      setCounts(updatedCounts);
     }
   };
 
-  // Function to handle applying changes to participants count
   const applyChanges = () => {
-    // Assuming you have an API endpoint to update the participants count for each card
     axios.post(`${BASE_URL}/updateCard/updated`, {
-      cards: cards.map(card => ({
+      cards: cards.map((card, index) => ({
         id: card._id,
-        participantsCount: updatedParticipants
+        participantsCount: updatedParticipants[index]
       }))
     })
-      .then(response => {
-        // Assuming the response contains the updated card data
-        setStudyGroups(response.data);
-        // Update the displayed participants count for each card
-        setParticipants(response.data.map(card => card.participantsCount));
-      })
-      .catch(err => console.log(err));
+    .then(response => {
+      setStudyGroups(response.data);
+      setParticipants(response.data.map(card => card.participantsCount));
+    })
+    .catch(err => console.log(err));
   };
 
   return (
@@ -65,13 +60,14 @@ function StudyGroupCard({ user }) {
       {cards.length === 0 ? (
         <p>No active study groups</p>
       ) : (
-        cards.map(card => (
+        cards.map((card, index) => (
           <div key={card._id} className="study-group-card">
             <h2>Topic: {card.subjectTopic}</h2>
-            <p>Number of participants: {participants}</p>
+            <p>Number of participants: {participants[index]}</p>
+            <p>Max participants: {counts[index]} </p>
             <div>
-              <button onClick={incrementParticipants}>+</button>
-              <button onClick={decrementParticipants}>-</button>
+              <button onClick={() => incrementParticipants(index)}>+</button>
+              <button onClick={() => decrementParticipants(index)}>-</button>
               <button onClick={applyChanges}>Limit participants</button>
             </div>
           </div>
