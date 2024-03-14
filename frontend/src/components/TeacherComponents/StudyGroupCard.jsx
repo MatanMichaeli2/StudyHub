@@ -42,7 +42,7 @@ function StudyGroupCard({ user }) {
   };
 
   const applyChanges = () => {
-    axios.post(`${BASE_URL}/updateCard/updated`, {
+    axios.patch(`${BASE_URL}/updateCard/updated`, {
       cards: cards.map((card, index) => ({
         id: card._id,
         participantsCount: updatedParticipants[index]
@@ -63,12 +63,14 @@ function StudyGroupCard({ user }) {
         cards.map((card, index) => (
           <div key={card._id} className="study-group-card">
             <h2>Topic: {card.subjectTopic}</h2>
-            <p>Number of participants: {participants[index]}</p>
-            <p>Max participants: {counts[index]} </p>
+            <p>participants: {participants[index]}</p>
+            <p>Max participants: {card.maxParticipants}</p>
+
+            <p>Limit: {counts[index]} </p>
             <div>
               <button onClick={() => incrementParticipants(index)}>+</button>
               <button onClick={() => decrementParticipants(index)}>-</button>
-              <button onClick={applyChanges}>Limit participants</button>
+              <button onClick={applyChanges}>Aplly limit</button>
             </div>
           </div>
         ))

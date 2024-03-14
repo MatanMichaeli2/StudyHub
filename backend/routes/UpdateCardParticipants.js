@@ -1,19 +1,17 @@
 const express = require('express');
 const updateCardRouter = express.Router();
-const StudyGroup = require('../models/StudyGroupModel');
+const { CardScheme } = require('../models/StudyGroupModel'); // Assuming CardScheme is the correct model
 const mongoose = require('mongoose'); // Import Mongoose
 
 
 // Route to handle updating the maximum number of participants for a study group card
-updateCardRouter.post("/updated", async (req, res) => {
-  const { id, maxParticipants } = req.body;
-
+updateCardRouter.patch("/updated", async (req, res) => {
+  const { maxParticipants } = req.body;
+  const groupId = req.body._id;
   try {
+    
     // Find the study group card by its ID and update the maxParticipants field
-    const updatedCard = await StudyGroup.findByIdAndUpdate(
-      id,
-      { maxParticipants },
-      { new: true }
+    const updatedCard = await CardScheme.findOneAndUpdate( {_id : req.body._id},{ maxParticipants }, { new: true }
     );
     
     // Check if the card was found and updated successfully
