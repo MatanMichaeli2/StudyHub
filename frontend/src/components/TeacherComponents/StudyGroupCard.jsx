@@ -40,20 +40,26 @@ function StudyGroupCard({ user }) {
       setCounts(updatedCounts);
     }
   };
-
-  const applyChanges = () => {
+  const applyChanges = (card, index) => {
+    const cardId = card._id;
+    const maxParticipants = counts[index];
+    
     axios.patch(`${BASE_URL}/updateCard/updated`, {
-      cards: cards.map((card, index) => ({
-        id: card._id,
-        participantsCount: updatedParticipants[index]
-      }))
+      id: cardId,
+      maxParticipants: maxParticipants
     })
     .then(response => {
-      setStudyGroups(response.data);
-      setParticipants(response.data.map(card => card.participantsCount));
+      // Update state with the updated card data
+      const updatedCards = [...cards];
+      updatedCards[index] = response.data;
+      setStudyGroups(updatedCards);
+      
+      // Update participants count if needed
+      setParticipants(updatedCards.map(card => card.participantsCount));
     })
     .catch(err => console.log(err));
   };
+  
 
   return (
     <div className="study-group-container">
@@ -70,7 +76,7 @@ function StudyGroupCard({ user }) {
             <div>
               <button onClick={() => incrementParticipants(index)}>+</button>
               <button onClick={() => decrementParticipants(index)}>-</button>
-              <button onClick={applyChanges}>Aplly limit</button>
+              <button onClick={() => applyChanges(card, index)}>Aplly limit</button>
             </div>
           </div>
         ))

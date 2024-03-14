@@ -7,11 +7,13 @@ const mongoose = require('mongoose'); // Import Mongoose
 // Route to handle updating the maximum number of participants for a study group card
 updateCardRouter.patch("/updated", async (req, res) => {
   const { maxParticipants } = req.body;
-  const groupId = req.body._id;
+  const {id} = req.body;
+  console.log(maxParticipants);
+  console.log(id);
   try {
     
     // Find the study group card by its ID and update the maxParticipants field
-    const updatedCard = await CardScheme.findOneAndUpdate( {_id : req.body._id},{ maxParticipants }, { new: true }
+    const updatedCard = await CardScheme.findOneAndUpdate( {_id : req.body.id},{ maxParticipants }, { new: true }
     );
     
     // Check if the card was found and updated successfully
