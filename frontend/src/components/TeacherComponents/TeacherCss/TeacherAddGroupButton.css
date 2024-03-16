@@ -1,17 +1,17 @@
 /* TeacherAddGroupButton.css */
 
 .teacher-add-group-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff; /* Blue color */
-    color: #fff; /* White text */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .teacher-add-group-button:hover {
-    background-color: #0056b3; /* Darker blue color on hover */
-  }
-  
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff; /* Blue color */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 5px;
+}
+
+.teacher-add-group-button:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
+}

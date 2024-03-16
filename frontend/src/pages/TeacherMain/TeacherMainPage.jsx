@@ -9,7 +9,7 @@ import '../../components/TeacherComponents/TeacherCss/Tpage.css';
 const TeacherMainPage = ({ user }) => {
   return (
     <div className='Tpage'>
-      <Navbar />
+      <Navbar user ={user} />
       <div className='content'>
         <div className='section'>
           <TeacherAddGroup user={user} />

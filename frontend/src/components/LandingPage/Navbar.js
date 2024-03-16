@@ -1,6 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function Navbar() {
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+
+function Navbar({user}) {
+  const navigate = useNavigate();//initialize navigate
+
+  function settings(){
+    navigate('/settings');
+  }
+
   return (
     <div className="navbar">
       <img src="/images/newlogo2.png" alt="StudyHub Logo" />
@@ -9,6 +17,7 @@ function Navbar() {
         <a href="#service">Services</a>
         <a href="#contact">Contact us</a>
         <a href="#admin">Admin Display</a>
+        {user && user.role === "lecturer" && <Link onClick={settings} to={'/settings'} >Settings</Link>}
         <Link to="/login">Log in</Link>
       </div>
     </div>

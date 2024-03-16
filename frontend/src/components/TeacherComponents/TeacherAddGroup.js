@@ -41,7 +41,7 @@ const TeacherAddGroup = ({ user }) => {
           onChange={(e) => setTopic(e.target.value)}
           placeholder="Enter topic"
         />
-        <button type="submit">Open New Group</button>
+        <button className="teacher-add-group-button" type="submit">Open New Group</button>
       </form>
     </div>
   );

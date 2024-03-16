@@ -1,5 +1,5 @@
 import React from "react";
-import './TeacherCss/teachernav.css'
+import './TeacherCss/teachernav.css';
 function NavbarT(){
     <div className="navbar">
   <img src="/StudyHub/frontend/public/images/newlogo2.png" alt="StudyHub Logo" />

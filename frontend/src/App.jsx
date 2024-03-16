@@ -5,6 +5,7 @@ import Registration from './components/Registration';
 import Login from './components/Login';
 import { Navbar } from './components/LandingPage/Navbar';
 import TeacherMainPage from './pages/TeacherMain/TeacherMainPage'; // Import TeacherMainPage
+import Settings from './pages/settings/settings';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -15,6 +16,8 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/settings" element={<Settings/>} />
+
         {/* Add route for teacher main page */}
         {user && user.role === 'lecturer' && (
           <Route

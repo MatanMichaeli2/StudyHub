@@ -1,0 +1,19 @@
+/* deleteUser.css */
+.delete-user {
+    margin-top: 2rem;
+  }
+  
+  .delete-button {
+    margin-top: 25px;
+    padding: 0.5rem 1rem;
+    background-color: #dc3545; /* Danger color for delete button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333; /* Darker shade on hover */
+  }
+  
