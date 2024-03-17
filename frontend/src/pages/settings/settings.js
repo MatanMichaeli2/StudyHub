@@ -3,20 +3,29 @@ import Navbar from '../../components/SettingsComp/SettingsNav';
 import Heading from '../../components/SettingsComp/SettingsHeading';
 import DeleteUser from '../../components/SettingsComp/DeleteUser';
 import EditProfile from '../../components/SettingsComp/EditProfile';
-
+import axios from 'axios'; // Import Axios
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './settings.css';
-function Settings() {
-  const handleDeleteUser = () => {
-    // Add logic to delete user
-    console.log('Deleting user...');
-  };
 
+function Settings({ user }) {
+  const navigate = useNavigate();
+
+  const handleDeleteUser = async () => {
+    try {
+      const response = await axios.delete(`/Delete/Deluser/${user._id}`);
+      console.log('User deleted successfully:', response.data);
+      // After successful deletion, navigate back to the home page
+      navigate('/');
+    } catch (error) {
+      console.error('Error deleting user:', error);
+    }
+  };
 
   const handleSaveProfile = async (updatedProfile) => {
     console.log('Saving profile...', updatedProfile);
     // Here, make an API call to the backend to update the user's information
     try {
-      const response = await fetch('/users/update', { // Adjust the URL as needed
+      const response = await fetch('/users/update', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,21 +46,14 @@ function Settings() {
       // Handle error (e.g., show an error message)
     }
   };
-  
 
   return (
     <div className="settings-page">
-      {/* Navbar */}
       <Navbar />
-
-      {/* Settings content */}
       <div className="settings-content">
-        {/* Heading */}
         <Heading />
-
         {/* Edit profile */}
         <EditProfile onSave={handleSaveProfile} />
-
         {/* Delete User */}
         <DeleteUser onDelete={handleDeleteUser} />
       </div>

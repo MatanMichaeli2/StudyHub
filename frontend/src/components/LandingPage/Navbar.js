@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function Navbar({user}) {
-  const navigate = useNavigate();//initialize navigate
+  const navigate = useNavigate();
 
-  function settings(){
+  function settings() {
     navigate('/settings');
   }
 
@@ -17,11 +17,12 @@ function Navbar({user}) {
         <a href="#service">Services</a>
         <a href="#contact">Contact us</a>
         <a href="#admin">Admin Display</a>
-        {user && user.role === "lecturer" && <Link onClick={settings} to={'/settings'} >Settings</Link>}
+        {user && user.role === "lecturer" && <Link to="/settings" onClick={settings}>Settings</Link>}
         <Link to="/login">Log in</Link>
       </div>
     </div>
   );
 }
+
 
 export default Navbar;

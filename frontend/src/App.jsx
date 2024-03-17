@@ -16,7 +16,7 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/settings" element={<Settings/>} />
+        <Route path="/settings" element={<Settings user={user} />} />
 
         {/* Add route for teacher main page */}
         {user && user.role === 'lecturer' && (
