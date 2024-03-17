@@ -1,14 +1,14 @@
 // DeleteUserRoute.js
 const express = require('express');
 const deleteRouter = express.Router();
-const UserModel = require('../models/users'); // Import User model
+const {UserModel} = require('../models/users'); // Import User model
 
-deleteRouter.delete('/Deluser/:id', async (req, res) => {
-  const userId = req.params.id; // Get user ID from request params
-
+deleteRouter.delete('/Deluser', async (req, res) => {
+  const {id} = req.query; // Get user ID from request params
+  console.log("user id from backend "+id)
   try {
     // Find the user by ID and delete it
-    const deletedUser = await UserModel.findByIdAndDelete(userId);
+    const deletedUser = await UserModel.findByIdAndDelete(id);
 
     if (deletedUser) {
       res.status(200).json({ message: 'User deleted successfully' });

@@ -5,14 +5,17 @@ import DeleteUser from '../../components/SettingsComp/DeleteUser';
 import EditProfile from '../../components/SettingsComp/EditProfile';
 import axios from 'axios'; // Import Axios
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { BASE_URL } from '../../constants'; // Import BASE_URL from constants
 import './settings.css';
 
 function Settings({ user }) {
   const navigate = useNavigate();
-
+  console.log({user});
+  const userid = user._id;
+  
   const handleDeleteUser = async () => {
     try {
-      const response = await axios.delete(`/Delete/Deluser/${user._id}`);
+      const response = await axios.delete(`${BASE_URL}/Delete/Deluser?id=${userid}`);
       console.log('User deleted successfully:', response.data);
       // After successful deletion, navigate back to the home page
       navigate('/');
