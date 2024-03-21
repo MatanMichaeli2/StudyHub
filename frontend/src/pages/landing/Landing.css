@@ -46,7 +46,7 @@
   
   /* Hero section styles */
   .hero-section {
-    min-height: 93vh;
+    min-height: 100vh;
     position: relative;
     text-align: left;
     padding: 8rem 5rem;
@@ -60,7 +60,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: url('https://img.freepik.com/free-photo/college-girls-studying-together_23-2149038414.jpg?w=996&t=st=1708536735~exp=1708537335~hmac=cc6766d69e20b5ea8c4c6ce896a5e190bbca37e5d0961bae5d975496dfb60e8c');
+    background-image: url('../../../public/images/main-page-pic.png');
     background-size: cover;
     background-position: center;
     filter: blur(2px); 
