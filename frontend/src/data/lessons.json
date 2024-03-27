@@ -1,0 +1,27 @@
+[
+    {
+      "name": "Mathematics",
+      "participants": 15,
+      "teacher": "John Doe",
+      "type": "teacher"
+    },
+    {
+      "name": "English Literature",
+      "participants": 10,
+      "teacher": "Jane Smith",
+      "type": "teacher"
+    },
+    {
+      "name": "Physics Group Study",
+      "participants": 8,
+      "teacher": "Group Study",
+      "type": "group"
+    },
+    {
+      "name": "Programming Fundamentals",
+      "participants": 20,
+      "teacher": "Mark Johnson",
+      "type": "teacher"
+    }
+  ]
+  

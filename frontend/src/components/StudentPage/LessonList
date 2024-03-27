@@ -1,0 +1,14 @@
+import React from 'react';
+import Lesson from './Lesson';
+
+const LessonList = ({ lessons }) => {
+  return (
+    <div className="lesson-list">
+      {lessons.map((lesson, index) => (
+        <Lesson key={index} lesson={lesson} />
+      ))}
+    </div>
+  );
+};
+
+export default LessonList;

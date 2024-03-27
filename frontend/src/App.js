@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Axios from "axios";
-import AdminDisplay from './components/UsersDetails/AdminDisplay';
+import AdminDisplay from './components/UsersDetails/UserDetails';
 
 
 const App = () => {
@@ -30,5 +30,3 @@ const App = () => {
 }
 
 export default App;
-
-

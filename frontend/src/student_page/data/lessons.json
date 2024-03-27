@@ -1,0 +1,43 @@
+{
+    "registered": [
+      {
+        "id": 1,
+        "lessonName": "Mathematics",
+        "creator": "John Doe",
+        "teacher": "Mr. Smith",
+        "participants": 10,
+        "zoomLink": "https://example.com/zoom",
+        "students": ["Alice", "Bob", "Charlie"],
+        "info": "Advanced Mathematics Group"
+      },
+      {
+        "id": 2,
+        "lessonName": "Science",
+        "creator": "Alice",
+        "teacher": null,
+        "participants": 7,
+        "zoomLink": "https://example.com/science",
+        "students": ["Eve", "Frank"],
+        "info": "Science Enthusiasts"
+      }
+    ],
+    "suggested": [
+      {
+        "id": 3,
+        "lessonName": "History",
+        "creator": "Bob",
+        "teacher": "Ms. Johnson",
+        "participants": 5,
+        "info": "History Buffs"
+      },
+      {
+        "id": 4,
+        "lessonName": "English",
+        "creator": "Charlie",
+        "teacher": null,
+        "participants": 3,
+        "info": "English Learners"
+      }
+    ]
+  }
+  
