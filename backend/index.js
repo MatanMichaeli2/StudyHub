@@ -4,9 +4,9 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const path = require("path");
 const { userRouter } = require("./routes/userRoutes.js");
-const CardScheme = require('./models/StudyGroupModel');
-const {router} = require("./routes/AddStudyGroupRoute.js");
-const groupRouter = require("./routes/StudyGroupRoutes.js");
+const StudyGroupModel = require("./models/StudyGroupModel");
+const { router } = require("./routes/AddStudyGroupRoute.js");
+const { studyGroupRouter } = require("./routes/StudyGroupRoutes.js");
 const updateCardRouter = require("./routes/UpdateCardParticipants.js");
 const deleteRouter = require("./routes/DeleteUserRoute.js");
 
@@ -38,13 +38,12 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 });
 
-app.use("/createStudyGroup",router);
+app.use("/createStudyGroup", router);
 
-app.use("/getCard",groupRouter);
+app.use("/study-group", studyGroupRouter);
 
-app.use("/updateCard",updateCardRouter);
+app.use("/updateCard", updateCardRouter);
 
-app.use("/Delete",deleteRouter);
-
+app.use("/Delete", deleteRouter);
 
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { BASE_URL } from '../../constants'; // Import BASE_URL from constants
-import './TeacherCss/card.css'
+import { BASE_URL } from "../../constants"; // Import BASE_URL from constants
+import "./TeacherCss/card.css";
 
 function StudyGroupCard({ user }) {
   const [cards, setStudyGroups] = useState([]);
@@ -12,18 +12,23 @@ function StudyGroupCard({ user }) {
   useEffect(() => {
     if (user && user.username) {
       const loggedInTeacherName = user.username;
-      axios.get(`${BASE_URL}/getCard/card?loggedInTeacherUsername=${loggedInTeacherName}`)
-        .then(response => {
+      axios
+        .get(
+          `${BASE_URL}/study-group/card?loggedInTeacherUsername=${loggedInTeacherName}`
+        )
+        .then((response) => {
           console.log("API response:", response.data); // Log API response
           setStudyGroups(response.data);
           // Initialize participants count and updatedParticipants array with data from API
-          const initialParticipants = response.data.map(card => card.participantsCount);
+          const initialParticipants = response.data.map(
+            (card) => card.participantsCount
+          );
           setParticipants(initialParticipants);
           setUpdatedParticipants(initialParticipants);
           // Initialize counts array with 0 for each card
           setCounts(Array(response.data.length).fill(0));
         })
-        .catch(err => console.log(err));
+        .catch((err) => console.log(err));
     }
   }, [user]);
 
@@ -43,23 +48,23 @@ function StudyGroupCard({ user }) {
   const applyChanges = (card, index) => {
     const cardId = card._id;
     const maxParticipants = counts[index];
-    
-    axios.patch(`${BASE_URL}/updateCard/updated`, {
-      id: cardId,
-      maxParticipants: maxParticipants
-    })
-    .then(response => {
-      // Update state with the updated card data
-      const updatedCards = [...cards];
-      updatedCards[index] = response.data;
-      setStudyGroups(updatedCards);
-      
-      // Update participants count if needed
-      setParticipants(updatedCards.map(card => card.participantsCount));
-    })
-    .catch(err => console.log(err));
+
+    axios
+      .patch(`${BASE_URL}/updateCard/updated`, {
+        id: cardId,
+        maxParticipants: maxParticipants,
+      })
+      .then((response) => {
+        // Update state with the updated card data
+        const updatedCards = [...cards];
+        updatedCards[index] = response.data;
+        setStudyGroups(updatedCards);
+
+        // Update participants count if needed
+        setParticipants(updatedCards.map((card) => card.participantsCount));
+      })
+      .catch((err) => console.log(err));
   };
-  
 
   return (
     <div className="study-group-container">
@@ -76,7 +81,9 @@ function StudyGroupCard({ user }) {
             <div>
               <button onClick={() => incrementParticipants(index)}>+</button>
               <button onClick={() => decrementParticipants(index)}>-</button>
-              <button onClick={() => applyChanges(card, index)}>Aplly limit</button>
+              <button onClick={() => applyChanges(card, index)}>
+                Aplly limit
+              </button>
             </div>
           </div>
         ))

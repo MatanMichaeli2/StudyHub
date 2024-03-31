@@ -2,6 +2,7 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { UserModel } = require("../models/users");
+const { StudyGroupModel } = require("../models/StudyGroupModel");
 
 const userRouter = express.Router();
 
@@ -113,7 +114,6 @@ userRouter.post("/update", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
-
 
 module.exports = {
   userRouter,

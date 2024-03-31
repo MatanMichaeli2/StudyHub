@@ -1,0 +1,23 @@
+{
+    "chats": [
+      {
+        "lessonId": 1,
+        "lessonName": "Mathematics",
+        "participants": ["Alice", "Bob", "Charlie"],
+        "chatLink": "https://example.com/math-chat"
+      },
+      {
+        "lessonId": 2,
+        "lessonName": "Science",
+        "participants": ["Eve", "Frank"],
+        "chatLink": "https://example.com/science-chat"
+      },
+      {
+        "lessonId": 3,
+        "lessonName": "History",
+        "participants": ["Alice", "Bob", "Charlie", "Eve"],
+        "chatLink": "https://example.com/history-chat"
+      }
+    ]
+  }
+  

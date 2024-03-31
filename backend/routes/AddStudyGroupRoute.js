@@ -1,18 +1,19 @@
 // backend/routes/AddStudyGroupRoutes.js
 
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const {CardScheme} = require('../models/StudyGroupModel');
+const { StudyGroupModel } = require("../models/StudyGroupModel");
 
 // Route to create a new study group
-router.post('/created', async (req, res) => {
-  const { subjectTopic, teacher } = req.body;
+router.post("/created", async (req, res) => {
+  const { subjectTopic, teacher, maxParticipants } = req.body;
 
   try {
     // Create a new study group document
-    const newStudyGroup = new CardScheme({
+    const newStudyGroup = new StudyGroupModel({
       subjectTopic,
-      teacher
+      teacher,
+      maxParticipants,
     });
 
     // Save the study group to the database
@@ -20,8 +21,8 @@ router.post('/created', async (req, res) => {
 
     res.status(201).json(createdStudyGroup);
   } catch (error) {
-    console.error('Error creating study group:', error);
-    res.status(500).json({ message: 'Server error' });
+    console.error("Error creating study group:", error);
+    res.status(500).json({ message: "Server error" });
   }
 });
 

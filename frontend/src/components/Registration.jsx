@@ -13,8 +13,8 @@ export const getPasswordStrength = (password) => {
   return strength;
 };
 
-function Registration({ onRegistration }) {
-  const navigate= useNavigate()
+function Registration({ studyGroups }) {
+  const navigate = useNavigate();
   const [role, setRole] = useState("");
   const [showFields, setShowFields] = useState(false);
   const [firstName, setFirstName] = useState("");
@@ -104,14 +104,14 @@ function Registration({ onRegistration }) {
       body: JSON.stringify(registrationData),
     });
 
-    if(response.ok){
-    const data = await response.json();
-    console.log("data", data);
-    navigate('/login')
-    resetFields();}
+    if (response.ok) {
+      const data = await response.json();
+      console.log("data", data);
+      navigate("/login");
+      resetFields();
+    }
   };
 
-  
   return (
     <div className="registration-page-container">
       <div className="registration-box">
@@ -119,7 +119,7 @@ function Registration({ onRegistration }) {
         <form onSubmit={handleSignup}>
           <div>
             <label>
-               Choose type:
+              Choose type:
               <select value={role} onChange={handleRoleChange}>
                 <option value="default"> </option>
                 <option value="student">Student</option>
@@ -151,7 +151,7 @@ function Registration({ onRegistration }) {
               </div>
               <div>
                 <label>
-                 Email:
+                  Email:
                   <input
                     type="email"
                     value={email}
@@ -162,7 +162,7 @@ function Registration({ onRegistration }) {
               <div>
                 <label>
                   ID:
-                  <br/>
+                  <br />
                   <input
                     type="text"
                     value={id}
@@ -172,14 +172,20 @@ function Registration({ onRegistration }) {
               </div>
               <div>
                 <label>
-                 Username:
+                  Username:
                   <input
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                   />
                 </label>
-                {username && <div className="invalid">{(!/[a-z]/i.test(username)) ? "Username must contain letters (a-z)" :''}</div>}
+                {username && (
+                  <div className="invalid">
+                    {!/[a-z]/i.test(username)
+                      ? "Username must contain letters (a-z)"
+                      : ""}
+                  </div>
+                )}
               </div>
               <div>
                 <label>
@@ -190,13 +196,19 @@ function Registration({ onRegistration }) {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </label>
-                {password && <div className="invalid">{getPasswordStrength(password) < 5 ? "The password must contain a lowercase letter (a-z), an uppercase letter (A-Z), a number and a special character" :''}</div>}
+                {password && (
+                  <div className="invalid">
+                    {getPasswordStrength(password) < 5
+                      ? "The password must contain a lowercase letter (a-z), an uppercase letter (A-Z), a number and a special character"
+                      : ""}
+                  </div>
+                )}
               </div>
               {(role === "lecturer" || role === "student") && (
                 <>
                   <div>
                     <label>
-                    Academic institution:
+                      Academic institution:
                       <input
                         type="text"
                         value={institution}
@@ -206,24 +218,27 @@ function Registration({ onRegistration }) {
                   </div>
                   <div>
                     <label>
-                    Field of study:
+                      Field of study:
                       <input
                         type="text"
+                        list="studyGroupsList"
                         value={studyField}
                         onChange={(e) => setStudyField(e.target.value)}
                       />
+                      <datalist id="studyGroupsList">
+                        {studyGroups.map((group) => (
+                          <option value={group.subjectTopic} />
+                        ))}
+                      </datalist>
                     </label>
                   </div>
-
-                  
                 </>
               )}
-
             </>
           )}
 
           <button type="submit" class="reg-button">
-          Sign up
+            Sign up
           </button>
         </form>
       </div>
