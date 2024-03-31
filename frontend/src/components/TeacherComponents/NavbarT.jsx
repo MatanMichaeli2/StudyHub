@@ -1,15 +1,28 @@
 import React from "react";
-import './TeacherCss/teachernav.css';
-function NavbarT(){
+import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+
+function Navbar({user}) {
+  const navigate = useNavigate();
+
+  function settings() {
+    navigate('/settings');
+  }
+
+  return (
     <div className="navbar">
-  <img src="/StudyHub/frontend/public/images/newlogo2.png" alt="StudyHub Logo" />
-  <div>
-    <a href="#about">About</a>
-    <a href="#service">Services</a>
-    <a href="#contact">Contact us</a>
-    <a href="#admin">Settings</a>
-  </div>
-</div>
+      <img src="/images/newlogo2.png" alt="StudyHub Logo" />
+      <div>
+        <Link to="/">Home</Link>
+        <a href="#contact">Contact us</a>
+        <a href="#admin">Admin Display</a>
+        <Link to="/settings" onClick={settings}>Settings</Link>
+        <Link to="/study-groups">Study Groups</Link>
+
+      </div>
+    </div>
+  );
 }
 
-export default NavbarT;
+
+export default Navbar;

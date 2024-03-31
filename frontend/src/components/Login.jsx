@@ -44,10 +44,11 @@ function Login({ setUser }) {
     setPassword("");
     alert("Login successful!");
     
-    // Redirect to the teacher main page if the user is a teacher
     if (data.userData.role === 'lecturer') {
       navigate("/teacher");
-    } else {
+    }else if (data.userData.role === 'student') {
+      navigate("/student");
+    }else {
       // Redirect to the default landing page for other roles
       navigate("/");
     }

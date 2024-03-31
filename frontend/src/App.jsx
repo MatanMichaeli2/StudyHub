@@ -11,6 +11,8 @@ import { ChatsPage } from "./pages/ChatsPage";
 import { ExplorerPage } from "./pages/ExplorerPage";
 import { BASE_URL } from "./constants";
 import axios from "axios";
+import StudentMainPage from './pages/StudentMain/StudentMainPage';
+
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -58,6 +60,13 @@ const App = () => {
           <Route
             path="/teacher"
             element={<TeacherMainPage user={user} />} // Pass user object as prop
+          />
+        )}
+
+          {user && user.role === 'student' && (
+          <Route
+           path="/student"
+           element={<StudentMainPage user={user}/>}
           />
         )}
       </Routes>

@@ -1,0 +1,28 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the navbar appears above other content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(253, 241, 210);
+    color: #fff; /* Text color */
+    padding: 1rem;
+}
+
+.navbar img {
+    width: 80px; /* Adjust logo size as needed */
+}
+
+.navbar a {
+    color: #000000; /* Link color */
+    text-decoration: none;
+    margin-left: 1rem; /* Adjust spacing between links */
+    font-weight: bold; /* Make links bold */
+}
+
+.navbar a:hover {
+    text-decoration: underline; /* Underline links on hover */
+}

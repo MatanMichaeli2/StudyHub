@@ -1,0 +1,25 @@
+.Spage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(356deg, rgba(196,175,133,0.9781162464985994) 2%, rgba(212,197,166,1) 40%, rgba(244,241,193,1) 78%);
+}
+
+/* Adjusted to target .NavbarS and .Footer */
+/* Replace 'NavbarS' and 'Footer' with the actual class names used within those components, if they are different */
+.NavbarS, .Footer {
+  flex-shrink: 0; /* Prevent navbar and footer from shrinking */
+  /* Specify fixed height for navbar and footer if needed */
+}
+
+.content {
+  margin-top: 100px;
+  flex: 1; /* Makes the content area flexible */
+  overflow-y: auto; /* Adds scrollbar to content area if content overflows */
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  margin: 0 10px;
+}
