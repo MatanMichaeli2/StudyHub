@@ -46,4 +46,5 @@ studyGroupRouter.put("/:groupId", async (req, res) => {
   }
 });
 
+
 module.exports = { studyGroupRouter };

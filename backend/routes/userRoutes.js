@@ -84,13 +84,13 @@ userRouter.post("/login", async (req, res) => {
   }
 });
 
-// Update user profile route
-userRouter.post("/update", async (req, res) => {
+// Update user profile by email
+userRouter.post("/updateByEmail", async (req, res) => {
   try {
-    const { id, firstName, lastName, email, password } = req.body;
+    const { email, firstName, lastName, username, newPassword } = req.body;
 
-    // Find the user by ID
-    const user = await UserModel.findById(id);
+    // Find the user by email
+    const user = await UserModel.findOne({ email });
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -98,11 +98,11 @@ userRouter.post("/update", async (req, res) => {
     // Update user details
     user.firstName = firstName || user.firstName;
     user.lastName = lastName || user.lastName;
-    user.email = email || user.email;
+    user.username = username || user.username;
 
-    // Only update the password if it's provided
-    if (password) {
-      user.password = await bcrypt.hash(password, 10);
+    // Only update the password if a new one is provided
+    if (newPassword) {
+      user.password = await bcrypt.hash(newPassword, 10);
     }
 
     // Save the updated user
@@ -114,6 +114,20 @@ userRouter.post("/update", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
+
+
+// Get all users route
+userRouter.get("/all", async (req, res) => {
+  try {
+    const users = await UserModel.find().select("-password"); // Exclude passwords from the result
+    res.json(users);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 
 module.exports = {
   userRouter,

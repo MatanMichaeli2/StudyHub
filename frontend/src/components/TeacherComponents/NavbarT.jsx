@@ -15,7 +15,6 @@ function Navbar({user}) {
       <div>
         <Link to="/">Home</Link>
         <a href="#contact">Contact us</a>
-        <a href="#admin">Admin Display</a>
         <Link to="/settings" onClick={settings}>Settings</Link>
         <Link to="/study-groups">Study Groups</Link>
 

@@ -1,0 +1,33 @@
+.Apage {
+  background-color: #fdf8ec;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 100px;
+  padding-bottom: 150px; /* Adjust based on the actual height of your footer */
+
+}
+
+.user-cards-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem; /* Adds space between cards */
+}
+
+.user-card {
+  width: calc(20% - 1rem); /* Adjust width for a maximum of 5 cards per row, considering the gap */
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  background-color: #fff; /* Ensures card background is white */
+}
+
+.user-card h3, .user-card p {
+  margin: 0.5rem 0; /* Smaller margin for a more compact card */
+}
+
+.user-card:hover {
+  transform: translateY(-10px);
+}

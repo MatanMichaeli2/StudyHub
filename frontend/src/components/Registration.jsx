@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Registration.css";
 import { BASE_URL } from "../constants";
 import { useNavigate } from "react-router-dom";
@@ -23,8 +23,13 @@ function Registration({ studyGroups }) {
   const [id, setId] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordStrength, setPasswordStrength] = useState(0);
   const [institution, setInstitution] = useState("");
   const [studyField, setStudyField] = useState("");
+
+  useEffect(() => {
+    setPasswordStrength(getPasswordStrength(password));
+  }, [password]);
 
   const resetFields = () => {
     setFirstName("");
@@ -124,6 +129,7 @@ function Registration({ studyGroups }) {
                 <option value="default"> </option>
                 <option value="student">Student</option>
                 <option value="lecturer">Lecturer</option>
+
               </select>
             </label>
           </div>
@@ -188,22 +194,23 @@ function Registration({ studyGroups }) {
                 )}
               </div>
               <div>
-                <label>
-                  Password:
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </label>
-                {password && (
-                  <div className="invalid">
-                    {getPasswordStrength(password) < 5
-                      ? "The password must contain a lowercase letter (a-z), an uppercase letter (A-Z), a number and a special character"
-                      : ""}
-                  </div>
-                )}
+            <label>
+              Password:
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </label>
+            <div className="password-strength-bar" data-strength={passwordStrength}></div>
+            {password && (
+              <div className="invalid">
+                {getPasswordStrength(password) < 5
+                  ? "The password must contain a lowercase letter (a-z), an uppercase letter (A-Z), a number, and a special character"
+                  : ""}
               </div>
+            )}
+          </div>
               {(role === "lecturer" || role === "student") && (
                 <>
                   <div>

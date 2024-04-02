@@ -1,0 +1,21 @@
+.home-page-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .registered-groups, .suggested-groups {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  .registered-groups h2, .suggested-groups h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Ensure LessonSquare has an external CSS or is styled in a way that can be affected by these containers. */
+  

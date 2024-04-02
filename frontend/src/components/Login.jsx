@@ -48,6 +48,8 @@ function Login({ setUser }) {
       navigate("/teacher");
     }else if (data.userData.role === 'student') {
       navigate("/student");
+    }else if (data.userData.role === 'admin') {
+      navigate("/admin");
     }else {
       // Redirect to the default landing page for other roles
       navigate("/");

@@ -68,3 +68,32 @@
 .registration-box .invalid {
   color:red;
 }
+
+.password-strength-bar {
+  height: 10px;
+  width: 100%;
+  background-color: #ddd;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.password-strength-bar[data-strength='1'] {
+  background-color: #ff0800;
+}
+
+.password-strength-bar[data-strength='2'] {
+  background-color: #ff5500;
+}
+
+.password-strength-bar[data-strength='3'] {
+  background-color: #ffda00;
+}
+
+.password-strength-bar[data-strength='4'] {
+  background-color: #fbff00;
+}
+
+.password-strength-bar[data-strength='5'] {
+  background-color: #05c46b; 
+}

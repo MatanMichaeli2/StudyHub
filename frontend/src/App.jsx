@@ -12,7 +12,7 @@ import { ExplorerPage } from "./pages/ExplorerPage";
 import { BASE_URL } from "./constants";
 import axios from "axios";
 import StudentMainPage from './pages/StudentMain/StudentMainPage';
-
+import AdminMainPage from './pages/AdminMain/AdminMainPage';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -56,7 +56,7 @@ const App = () => {
         <Route path="/chats" component={ChatsPage} />
 
         {/* Add route for teacher main page */}
-        {user && (
+        {user && user.role === 'lecturer' &&(
           <Route
             path="/teacher"
             element={<TeacherMainPage user={user} />} // Pass user object as prop
@@ -67,6 +67,12 @@ const App = () => {
           <Route
            path="/student"
            element={<StudentMainPage user={user}/>}
+          />
+        )}
+        {user && user.role === 'admin' &&(
+          <Route
+            path="/admin"
+            element={<AdminMainPage user={user} />}
           />
         )}
       </Routes>
