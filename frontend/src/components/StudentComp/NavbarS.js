@@ -15,7 +15,7 @@ function Navbar({user}) {
       <div>
         <Link to="/">Home</Link>
         <a href="#contact">Contact us</a>
-        <Link to="/settings" onClick={settings}>Settings</Link>
+        <Link to="/settings" user={user} onClick={settings}>Settings</Link>
         <Link to="/study-groups">Study Groups</Link>
 
       </div>

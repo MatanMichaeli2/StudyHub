@@ -57,7 +57,7 @@ function Settings({ user }) {
       <div className="settings-content">
         <Heading />
         {/* Edit profile */}
-        <EditProfile onSave={handleSaveProfile} />
+        <EditProfile user={user} onSave={handleSaveProfile} />
         {/* Delete User */}
         <DeleteUser onDelete={handleDeleteUser} />
       </div>

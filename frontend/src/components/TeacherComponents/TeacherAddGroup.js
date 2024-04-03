@@ -1,11 +1,12 @@
-//TeacherAddGroup.js
+// TeacherAddGroup.js
+
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants"; // Import BASE_URL from constants
 import "./TeacherCss/TeacherAddGroupButton.css";
 
-export const TeacherAddGroup = ({ user }) => {
+export const TeacherAddGroup = ({ user, updateStudyGroups }) => {
   const [subjectTopic, setTopic] = useState("");
   const navigate = useNavigate(); // Initialize navigate
 
@@ -27,6 +28,9 @@ export const TeacherAddGroup = ({ user }) => {
 
       // Clear the input field after creating the study group
       setTopic("");
+
+      // Call the callback function to update the study groups
+      updateStudyGroups(response.data);
 
       // Navigate to the teacher main page after creating the group
       navigate("/teacher");

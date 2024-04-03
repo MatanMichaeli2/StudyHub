@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './EditProfileCss/EditProfile.css';
+import { BASE_URL } from "../../constants"; // Import BASE_URL from constants
 
-function EditProfile({ currentUser }) {
+function EditProfile({ user }) {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
@@ -9,19 +10,21 @@ function EditProfile({ currentUser }) {
     username: '',
     email: '',
     password: '',
+    _id: '' // Add _id field to formData
   });
 
   useEffect(() => {
-    if (currentUser) {
+    if (user) {
       setFormData({
-        firstName: currentUser.firstName || '',
-        lastName: currentUser.lastName || '',
-        username: currentUser.username || '',
-        email: currentUser.email || '',
+        firstName: user.firstName || '',
+        lastName: user.lastName || '',
+        username: user.username || '',
+        email: user.email || '',
         password: '',
+        _id: user._id // Set _id in formData
       });
     }
-  }, [currentUser]);
+  }, [user]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,12 +40,13 @@ function EditProfile({ currentUser }) {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/users/updateByEmail', {
-        method: 'POST',
+      // Assuming updateData contains the fields to be updated
+      const response = await fetch(`${BASE_URL}/users/updateById`, {
+        method: 'PATCH', // Change method to PATCH
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(updateData),
+        body: JSON.stringify(updateData), // Send updateData directly
       });
 
       const data = await response.json();

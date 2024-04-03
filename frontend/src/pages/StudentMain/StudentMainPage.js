@@ -10,7 +10,7 @@ function StudentMainPage({ user }) { // Accept user prop here
   return (
     <div className='Spage'>
       <div className="NavbarS">
-        <NavbarS />
+        <NavbarS user ={user}/>
       </div>
       <div className="content">
         <Menu />

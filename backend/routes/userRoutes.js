@@ -84,36 +84,52 @@ userRouter.post("/login", async (req, res) => {
   }
 });
 
-// Update user profile by email
-userRouter.post("/updateByEmail", async (req, res) => {
-  try {
-    const { email, firstName, lastName, username, newPassword } = req.body;
 
-    // Find the user by email
-    const user = await UserModel.findOne({ email });
+// Define route to handle PATCH request for updating user profile by ID
+// Define route to handle PATCH request for updating user profile by ID
+userRouter.patch('/updateById', async (req, res) => {
+  console.log("found the route");
+  console.log("User object:", req.body); // Assuming the user object is sent in the request body
+  console.log("User ID:", req.body._id); // Log the _id field from the request body
+
+  try {
+    // Extract data from request body
+    const { _id, firstName, lastName, username, email, password } = req.body;
+
+    // Check if _id is provided
+    if (!_id) {
+      return res.status(400).json({ message: 'User ID is required' });
+    }
+
+    // Find the user by ID
+    const user = await UserModel.findById(_id);
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      return res.status(404).json({ message: 'User not found' });
     }
 
     // Update user details
     user.firstName = firstName || user.firstName;
     user.lastName = lastName || user.lastName;
     user.username = username || user.username;
+    user.email = email || user.email;
 
-    // Only update the password if a new one is provided
-    if (newPassword) {
-      user.password = await bcrypt.hash(newPassword, 10);
+    // Update password if provided
+    if (password) {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      user.password = hashedPassword;
     }
 
     // Save the updated user
     await user.save();
 
-    res.status(200).json({ message: "Profile updated successfully" });
+    // Respond with success message
+    res.status(200).json({ message: 'Profile updated successfully' });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Server error" });
+    console.error('Error updating user profile:', error);
+    res.status(500).json({ message: 'Server error' });
   }
 });
+
 
 
 
