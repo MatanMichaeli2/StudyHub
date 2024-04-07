@@ -86,7 +86,6 @@ userRouter.post("/login", async (req, res) => {
 
 
 // Define route to handle PATCH request for updating user profile by ID
-// Define route to handle PATCH request for updating user profile by ID
 userRouter.patch('/updateById', async (req, res) => {
   console.log("found the route");
   console.log("User object:", req.body); // Assuming the user object is sent in the request body

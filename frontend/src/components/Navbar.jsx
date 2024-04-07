@@ -13,8 +13,6 @@ function Navbar({ user }) {
         <a href="#service">Services</a>
         <a href="#contact">Contact us</a>
         <Link to="/study-groups">Study Groups</Link>
-
-        {/* <a href="#admin">Admin Display</a> */}
         {user && <Link to="/settings">Settings</Link>}
         {!user && <Link to="/login">Log in</Link>}
       </div>

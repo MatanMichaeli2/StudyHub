@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../components/SettingsComp/SettingsNav";
+import NavbarS from "../../components/StudentComp/NavbarS";
 import Heading from "../../components/SettingsComp/SettingsHeading";
 import DeleteUser from "../../components/SettingsComp/DeleteUser";
 import EditProfile from "../../components/SettingsComp/EditProfile";
@@ -54,6 +54,7 @@ function Settings({ user }) {
 
   return (
     <div className="settings-page">
+      <NavbarS user ={user}/>
       <div className="settings-content">
         <Heading />
         {/* Edit profile */}

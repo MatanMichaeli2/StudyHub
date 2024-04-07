@@ -6,7 +6,7 @@ import ContactInfo from "../UsersDetails/ContactInfo";
 import ActivityLog from "../UsersDetails/ActivityLog";
 import Actions from "../UsersDetails/Actions";
 
-import userData from '../../data/users.json'; // Import user data from local JSON file
+import userData from '../../data/users.json';
 
 const AdminDisplay = () => {
   const [users, setUsers] = useState([]);

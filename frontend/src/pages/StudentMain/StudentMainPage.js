@@ -6,7 +6,7 @@ import NavbarS from '../../components/StudentComp/NavbarS.js';
 import Menu from '../../components/StudentComp/Menu';
 import HomePage from '../../components/StudentComp/StudentPages/HomePage';
 
-function StudentMainPage({ user }) { // Accept user prop here
+function StudentMainPage({ user }) { 
   return (
     <div className='Spage'>
       <div className="NavbarS">
