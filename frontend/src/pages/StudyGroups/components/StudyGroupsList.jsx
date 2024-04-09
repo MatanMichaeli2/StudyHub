@@ -3,7 +3,7 @@ import { BASE_URL } from "../../../constants";
 import axios from "axios";
 import { StudyGroupCard } from "./StudyGroupCard/StudyGroupCard";
 
-export function StudyGroupsList({ studyGroups, setStudyGroups, user,fetchStudyGroups }) {
+export function StudyGroupsList({ studyGroups, setStudyGroups, user, fetchStudyGroups }) {
   const handleLeaveClick = async (group) => {
     if (!user) {
       return alert("Please login to leave a study group");
@@ -64,11 +64,12 @@ export function StudyGroupsList({ studyGroups, setStudyGroups, user,fetchStudyGr
       {studyGroups.length === 0 ? (
         <p>No active study groups</p>
       ) : (
-        studyGroups.map((group, index) => {
+        studyGroups.map((group) => {
           const didJoinGroup =
             user && group.participants.some((p) => p._id === user._id);
           return (
             <StudyGroupCard
+              key={group._id}
               group={group}
               didJoinGroup={didJoinGroup}
               handleJoinClick={handleJoinClick}

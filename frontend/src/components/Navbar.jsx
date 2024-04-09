@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 function Navbar({ user }) {
-  const navigate = useNavigate();
 
   return (
     <div className="navbar">

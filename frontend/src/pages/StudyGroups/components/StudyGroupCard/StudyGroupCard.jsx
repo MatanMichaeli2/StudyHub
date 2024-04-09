@@ -20,9 +20,10 @@ export const StudyGroupCard = ({
         ) : (
           <button onClick={() => handleJoinClick(group)}>Join</button>
         )}
-        <button onClick={() => setShowParticipants((prev) => !prev)}>
+
+        {group.participants.length > 0 ?<button onClick={() => setShowParticipants((prev) => !prev)}>
           Show Participants
-        </button>
+        </button>:null}
       </div>
 
       {showParticipants && (

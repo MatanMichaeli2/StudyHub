@@ -17,7 +17,6 @@ import AdminMainPage from './pages/AdminMain/AdminMainPage';
 const App = () => {
   const [user, setUser] = useState(null);
   const [studyGroups, setStudyGroups] = useState([]);
-  console.log("user", user);
 
   function fetchStudyGroups() {
     axios
@@ -81,7 +80,7 @@ const App = () => {
           />
         )}
       </Routes>
-      
+
     </Router>
   );
 };
