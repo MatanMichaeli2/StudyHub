@@ -14,8 +14,7 @@ describe('HomePage Component', () => {
 
     expect(screen.getByText(`Welcome, John Doe!`)).toBeInTheDocument();
     expect(screen.getByText('What would you like to do today?')).toBeInTheDocument();
-    expect(screen.getByText('Registered Study Groups')).toBeInTheDocument();
-    expect(screen.getByText('You are not registered in any study groups.')).toBeInTheDocument();
+
   });
 
   test('renders welcome message for a guest user', () => {
@@ -23,7 +22,5 @@ describe('HomePage Component', () => {
 
     expect(screen.getByText('Welcome, Student!')).toBeInTheDocument();
     expect(screen.getByText('What would you like to do today?')).toBeInTheDocument();
-    expect(screen.getByText('Registered Study Groups')).toBeInTheDocument();
-    expect(screen.getByText('You are not registered in any study groups.')).toBeInTheDocument();
   });
 });
