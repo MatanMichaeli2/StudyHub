@@ -14,7 +14,6 @@ function Navbar({user}) {
       <img src="/images/newlogo2.png" alt="StudyHub Logo" />
       <div>
         <Link to="/">Home</Link>
-        <a href="#contact">Contact us</a>
         <Link to="/admin">Admin Display</Link>
         <Link to="/settings" onClick={settings}>Settings</Link>
         <Link to="/study-groups">Study Groups</Link>
