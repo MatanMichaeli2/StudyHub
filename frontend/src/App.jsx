@@ -19,7 +19,7 @@ const App = () => {
   const [studyGroups, setStudyGroups] = useState([]);
   console.log("user", user);
 
-  useEffect(() => {
+  function fetchStudyGroups() {
     axios
       .get(`${BASE_URL}/study-group/card`)
       .then((response) => {
@@ -28,6 +28,10 @@ const App = () => {
         // Initialize participants count and updatedParticipants array with data from API
       })
       .catch((err) => console.log(err));
+  }
+
+  useEffect(() => {
+    fetchStudyGroups();
   }, []);
 
   return (
@@ -47,6 +51,7 @@ const App = () => {
               user={user}
               setStudyGroups={setStudyGroups}
               studyGroups={studyGroups}
+              fetchStudyGroups={fetchStudyGroups}
             />
           }
         />
@@ -76,6 +81,7 @@ const App = () => {
           />
         )}
       </Routes>
+      
     </Router>
   );
 };

@@ -16,6 +16,7 @@ function Login({ setUser }) {
 
   const handleLogin = async (event) => {
     event.preventDefault();
+    
     if (!username || !password) {
       console.log("Please enter both username and password.");
       alert("Please enter both username and password.");

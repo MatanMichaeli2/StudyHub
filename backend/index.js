@@ -32,18 +32,18 @@ app.use(cors());
 app.use(express.json());
 // Serve static files from the frontend/public directory
 app.use(express.static("../frontend/public"));
-app.use("/users", userRouter);
+
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 });
 
+
+// routes (endpoint)
+app.use("/users", userRouter);
 app.use("/createStudyGroup", router);
-
 app.use("/study-group", studyGroupRouter);
-
 app.use("/updateCard", updateCardRouter);
-
 app.use("/Delete", deleteRouter);
 
 app.use(bodyParser.urlencoded({ extended: true }));

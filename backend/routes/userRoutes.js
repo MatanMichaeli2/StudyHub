@@ -1,8 +1,6 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 const { UserModel } = require("../models/users");
-const { StudyGroupModel } = require("../models/StudyGroupModel");
 
 const userRouter = express.Router();
 
@@ -13,7 +11,6 @@ userRouter.post("/register", async (req, res) => {
       firstName,
       lastName,
       email,
-      id,
       username,
       password,
       role,
@@ -24,9 +21,9 @@ userRouter.post("/register", async (req, res) => {
     // Check if user already exists
     const doesUserExist = await UserModel.findOne({ email });
     if (doesUserExist) {
-      return res.status(400).json({ message: "User already exists" });
+      return res.status(400).json({ message: "User with this email already exists" });
     }
-
+    /// hashing the password (123 -> asd678as567asd57as6d5as76)
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Create a new user
@@ -69,15 +66,10 @@ userRouter.post("/login", async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    // Generate JWT token
-    const token = jwt.sign({ userId: user._id }, "your_secret_key", {
-      expiresIn: "1h",
-    });
-
     const userData = user.toObject();
     delete userData.password;
 
-    res.json({ token, userData });
+    res.json({  userData });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
