@@ -7,7 +7,6 @@ import { BASE_URL } from "../../../constants";
 export const StudentAddGroup = ({ user }) => {
   const [subjectTopic, setTopic] = useState("");
   const [maxParticipants, setMaxParticipants] = useState(3);
-  const navigate = useNavigate(); // Initialize navigate
 
   const handleCreateGroup = async (event) => {
     event.preventDefault();
@@ -20,14 +19,19 @@ export const StudentAddGroup = ({ user }) => {
         }
       );
 
-      // Handle the response (optional)
-      console.log("New study group created:", response.data);
+      if(response.status === 201){
+        // Handle the response (optional)
+        console.log("New study group created:", response.data);
+        alert('Group created succesfully')
+  
+        // Clear the input field after creating the study group
+        setTopic("");
+        setMaxParticipants(3);
 
-      // Clear the input field after creating the study group
-      setTopic("");
-      setMaxParticipants(3);
+      }
     } catch (error) {
       console.error("Error creating study group:", error);
+      alert('Érror creating study group: '+error.message)
     }
   };
 
