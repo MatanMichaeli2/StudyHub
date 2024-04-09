@@ -1,15 +1,98 @@
-.Tpage{
-    min-height: 100vh;
-   background: rgb(196,175,133);
-   background: linear-gradient(356deg, rgba(196,175,133,0.9781162464985994) 2%, rgba(212,197,166,1) 40%, rgba(244,241,193,1) 78%);
+/* Tpage container styling */
+.Tpage {
+  min-height: 100vh;
+  background: rgb(196, 175, 133);
+  background: linear-gradient(356deg, rgba(196, 175, 133, 0.9781162464985994) 2%, rgba(212, 197, 166, 1) 40%, rgba(244, 241, 193, 1) 78%);
 }
 
+/* Grid layout for the content area */
 .content {
-    display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Create two columns of equal width */
+  gap: 20px; /* Space between grid items */
+  padding: 20px; /* Padding around the entire content area */
+}
+
+/* Styling for sections other than the calendar */
+.section {
+  padding: 10px; /* Padding inside each section for some breathing room */
+  /* Add any additional styling you need for these sections */
+}
+
+/* Styling for the calendar container */
+.calendar-container {
+  max-width: 600px; /* Limit the calendar's maximum width */
+  margin: auto; /* Center the calendar within its grid area */
+  /* Additional calendar container styles if needed */
+}
+
+/* Styling specifically for the react-calendar component */
+.calendar-container .react-calendar {
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-family: 'Arial', sans-serif;
+  line-height: 1.125em;
+}
+
+.calendar-container .react-calendar__navigation button {
+  min-width: 44px;
+  background-color: #f0f0f0;
+  color: #333;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+.calendar-container .react-calendar__navigation button:enabled:hover,
+.calendar-container .react-calendar__navigation button:enabled:focus {
+  background-color: #dcdcdc;
+  cursor: pointer;
+}
+
+.calendar-container .react-calendar__month-view__weekdays {
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+}
+
+.calendar-container .react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+}
+
+.calendar-container .react-calendar__tile {
+  padding: 0.75em 0.5em;
+  background-color: #fafafa;
+  border-radius: 5px;
+  font-size: 0.875em;
+}
+
+.calendar-container .react-calendar__tile:enabled:hover,
+.calendar-container .react-calendar__tile:enabled:focus {
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+
+.calendar-container .react-calendar__tile--active {
+  background-color: #009688;
+  color: white;
+}
+
+.calendar-container .react-calendar__tile--active:enabled:hover,
+.calendar-container .react-calendar__tile--active:enabled:focus {
+  background-color: #00796b;
+}
+
+.react-calendar .react-calendar__month-view .react-calendar__tile--now {
+  background-color: #007bff !important; /* Blue background */
+  color: white !important; /* White text */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr; /* Stack content items in a single column on smaller screens */
   }
-  
-  .section {
-    flex: 1;
-    margin: 0 10px;
-  }
-  
+}

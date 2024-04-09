@@ -5,8 +5,9 @@ import '../../components/StudentComp/StudentCss/Spage.css';
 import NavbarS from '../../components/StudentComp/NavbarS.js';
 import Menu from '../../components/StudentComp/Menu';
 import HomePage from '../../components/StudentComp/StudentPages/HomePage';
+import { StudyGroupsList } from "../StudyGroups/components/StudyGroupsList.jsx";
 
-function StudentMainPage({ user }) { 
+function StudentMainPage({ user, studyGroups, setStudyGroups,fetchStudyGroups }) { 
   return (
     <div className='Spage'>
       <div className="NavbarS">
