@@ -1,4 +1,3 @@
-
 import { getPasswordStrength } from "../components/Registration";
 import { render, fireEvent } from '@testing-library/react';
 import Registration from '../components/Registration';

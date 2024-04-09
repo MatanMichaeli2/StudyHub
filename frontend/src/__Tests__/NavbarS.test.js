@@ -22,7 +22,6 @@ describe('Navbar Component', () => {
 
     expect(screen.getByAltText('StudyHub Logo')).toBeInTheDocument();
     expect(screen.getByText('Home')).toBeInTheDocument();
-    expect(screen.getByText('Contact us')).toBeInTheDocument();
     expect(screen.getByText('Settings')).toBeInTheDocument();
     expect(screen.getByText('Study Groups')).toBeInTheDocument();
 
